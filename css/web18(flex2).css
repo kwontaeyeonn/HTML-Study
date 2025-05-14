@@ -1,0 +1,33 @@
+/* body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+} */
+.container {
+    width: 800px;
+    display: flex;
+    border: 1px solid #222;
+    background-color: #eee;
+    gap: 30px;
+}
+
+.box {
+    background-color: #222;
+}
+
+p {
+    color: #fff;
+    text-align: center;
+    font-size: 2rem;
+}
+
+/* #box1 {
+    flex-grow: 1;;
+}
+#box2 {
+    flex-grow: 1;
+}
+#box4 {
+    flex-grow: 2;
+} */

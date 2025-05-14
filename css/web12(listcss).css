@@ -1,0 +1,15 @@
+@import url('https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css');
+
+.book1 {
+    list-style-type: square;
+    /* list-style-image: url("../images/icon.png"); */
+    padding: 0px;
+}
+
+
+.book2 {
+    /* list-style-type: none; */
+    /* list-style-position: inside; */
+    list-style: lower-alpha inside;
+}
+
