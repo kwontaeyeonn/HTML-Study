@@ -1,0 +1,41 @@
+.container {
+    width: 700px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,100px);
+}
+
+.items {
+    padding: 15px;
+    text-align: center;
+}
+
+.box1 {
+    background-color: blue;
+    grid-column: 1/4;
+    grid-row: 1/2;
+}
+
+.box2 {
+    background-color: green;
+    grid-column: 1/2;
+    grid-row: 2/4;
+}
+
+.box3 {
+    background-color: orange;
+    grid-column: 2/4;
+    grid-row: 2/3;
+}
+
+.box4 {
+    background-color: yellow;
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
+
+.box5 {
+    background-color: red;
+    grid-column: 3/4;
+    grid-row: 3/4;
+}
