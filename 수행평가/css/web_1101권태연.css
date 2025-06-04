@@ -6,6 +6,7 @@ title {
     font-size: 3em;
     color: rgb(34, 34, 172);
 }
+
 /*대표 이미지 크기, 투명도*/
 .box {
     width: 100%;
@@ -14,6 +15,7 @@ title {
 .main {
     position: relative;
 }
+
 /*텍스트 위치,크기,폰트 조절*/
 .text {
     position: absolute;
@@ -36,6 +38,7 @@ title {
     width: 100%;
     height: 100%;
 }
+
 /*talbe크기,위치 조절*/
 table {
     width: 90%;
@@ -43,8 +46,8 @@ table {
     border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
-
 }
+
 /*th 위치,색,폰트, 디자인 등*/
 th {
     text-align: center;
@@ -63,13 +66,13 @@ td {
     height: 75px;
     font-family: "배달의민족 주아";
 }
-
 li {
     font-family: "배달의민족 한나체 Air";
     font-size: 12px;
     background-color: rgb(244, 231, 224);
     color: black;
 }
+
 /*토요일 일요일 색 지정*/
 .sunday {
     color: red;
@@ -77,6 +80,7 @@ li {
 .saturday {
     color: blue;
 }
+
 /*신청폼 제목 스타일*/
 .ttt {
     font-family: "배달의민족 기랑해랑";
