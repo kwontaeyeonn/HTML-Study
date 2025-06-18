@@ -1,0 +1,24 @@
+/* 에제3 */
+/* .bookdate {
+    width: 30vw;
+    height: 30vw;
+    border: 1px solid black;
+    border-radius: 50%;
+    text-align: center;
+    background-color: aquamarine;
+} */
+
+/* 예제4 */
+.title_box {
+    width: 30vw;
+    height: 10vw;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center;
+    background-color: cornsilk;
+}
+
+.title_box h1 {
+    margin: 0;
+    line-height: 10vw;
+}
