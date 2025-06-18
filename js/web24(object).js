@@ -27,12 +27,20 @@
 // // document.getElementById('p_day') = passday
 
 // 예제4
-let seed = prompt("전체 응모자 수 : ");
-let picked = Math.floor((Math.random() * seed) + 1);
+// let seed = prompt("전체 응모자 수 : ");
+// let seed = 100;
+// let picked = Math.floor((Math.random() * seed) + 1);
 
 
-document.getElementById(`s`).innerText = seed
-document.getElementById(`p`).innerText = picked
+// document.getElementById('s').innerText = seed
+// document.getElementById('p').innerText = picked
 
-window.open("popup.html", "notice", "width=500, height=400");
-// window.oepn(경로, 창 이름, 창 옵션)
+// window.open("popup.html", "notice", "width=500, height=400");
+//window.oepn(경로, 창 이름, 창 옵션)
+
+const b_left = window.screenX; // 브라우저의 왼쪽이 화면에서 어디있는지를 나타냄
+const b_top = window.screenY; // 브라우저의 상단이 화면에서 어디있는지를 나타냄
+
+const p_left = b_left + 100;
+const p_top = b_top + 100;
+window.open('popup.html', 'pop', `width=500, height=400, left=${p_left}, top=${p_top}`)
