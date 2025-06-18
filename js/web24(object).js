@@ -31,7 +31,7 @@
 // let seed = 100;
 // let picked = Math.floor((Math.random() * seed) + 1);
 
-
+// 예제4
 // document.getElementById('s').innerText = seed
 // document.getElementById('p').innerText = picked
 
@@ -43,4 +43,12 @@ const b_top = window.screenY; // 브라우저의 상단이 화면에서 어디�
 
 const p_left = b_left + 100;
 const p_top = b_top + 100;
-window.open('popup.html', 'pop', `width=500, height=400, left=${p_left}, top=${p_top}`)
+
+function openPopup() {
+    let newWin = window.open('popup.html','pop',`width=500, height=400, left=${p_left}, top=${p_top}`)
+    if (newWin == null) {
+        alert("팝업이 차단되어 있습니다. 팝업 차단을 해제해 주세요.")
+    }
+}
+// window.open('popup.html', 'pop', `width=500, height=400, left=${p_left}, top=${p_top}`)
+
