@@ -6,8 +6,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/web15(layout).css" />
 </head>
-<body>
+<body onload="loadPage('web13(tablecss).html')">
     <header>
+    <a href="web15(layout).html"></a>
     <img src="https://dgsw.dge.hs.kr/images/schl/web/dgswh/common/logo.png" alt="학교로고">
     <ul>
         <li>홈</li>
@@ -19,7 +20,7 @@
 
     <nav id="main_menu">
     <ul>
-        <li>학교소개</li>
+        <li><a href="#" onclick="loadPage('web12(listcss).html')">학교소개</li>
         <li>교육활동</li>
         <li>학생마당</li>
         <li>학부모마당</li>
@@ -35,9 +36,11 @@
     </nav>
 
     <main>
-        <div class="box"></div>
+        <iframe id="contentFrame" src="" width="100%" height="500px" style="border:none;"></iframe>
     </main>
 
     <!-- <footer></footer> -->
+
+    <script src="../js/web15(layout).js"></script>
 </body>
 </html>
