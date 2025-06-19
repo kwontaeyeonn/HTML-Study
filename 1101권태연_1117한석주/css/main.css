@@ -1,0 +1,75 @@
+body{
+    margin-top: 10px;
+    width: 98vw;
+    height: 98vh;
+}
+.head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.title {
+    position: relative;
+    top: 17px;
+    left: 20px;
+    
+}
+a {
+    text-decoration: none;  /* 밑줄 제거 */  
+    color: black;    
+}
+.aa {
+    color: rgb(23, 23, 191);
+}
+.aa:hover {
+    text-decoration: underline; /* 커서를 올리면 밑줄 표시 */
+}
+h1{
+    margin-top:0px;
+    margin-bottom: 0px;
+}
+.mypage{
+    position: relative;
+    top: 13px;
+    right: 40px;
+    font-weight: bold;
+}
+.login, .logout {
+    position: relative;
+    top: 13px;
+    right: 35px;
+    font-weight: bold;
+}
+.logout {
+    color: rgb(127, 11, 11);
+}
+.hr1 {
+    position: relative;
+    top: -10px;
+}
+.hr2 {
+    position: relative;
+    top: -7px;
+}
+.menu {
+    position: relative;
+    top: -7px;
+    left: 130px;
+    font-size: 18px;
+    display: inline-block;
+    margin: 0 45px;
+}
+.color-box {
+    background-color: #f0f0f0b9; /* 원하는 배경색 */
+    height: 40px; /* 박스 높이 조절 (메뉴 높이에 맞게) */
+    width: 100%; /* 가로 끝까지 */
+    position: relative;
+    top: 40px; /* hr 위치에 맞게 조절 */
+    z-index: -1;  /* 메뉴 글자가 위로 보이도록 */
+}
+
+footer {
+    text-align: center; /* 내부 텍스트 및 인라인 요소 가운데 정렬 */
+    font-size: 14px;
+}
