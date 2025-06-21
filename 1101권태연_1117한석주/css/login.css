@@ -1,0 +1,52 @@
+*{
+    color: #444136;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: #E3E1DB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    width: 213px;
+    height: 240px;
+    border: 2px solid #C1BFB6;
+    background-color: white;
+    border-radius: 5px;
+
+}
+.modal{
+    width: 200px;
+    margin-top: 28px;
+    margin-left: 20px;
+}
+p{
+    margin-bottom: 7px;
+}
+.back{
+    margin-top: 16px;
+    margin-left: 15px;
+    width: 200px;
+}
+button{
+    border: none;
+    background: white;
+}
+.private{
+    margin-right: 2px;
+}
+
+input[type="date"]:focus {
+  outline: none;
+  width: 150px;
+}
+b{
+    font-size: 16px;
+}
+.start{
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
