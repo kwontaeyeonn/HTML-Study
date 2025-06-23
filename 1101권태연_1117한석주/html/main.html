@@ -4,48 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>따숨이</title>
-    <link rel="stylesheet" href="/1101권태연_1117한석주/css/main.css" />
-</head>
-<body onload="openPopup()">
+    <link rel="stylesheet" href="../css/main.css" />
+    </head>
+    <body onload="openPopup()">
+    <!-- 헤더 -->
     <div class="head">
-        <h1 class="title">따숨이</h1>
+        <div class="h1">
+            <h1>따숨이</h1>
+        </div>
         <div class="top">
             <a class="mypage">마이 페이지</a>
-            <span class="mypage">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-            <a class="login" href="../html/login.html">로그인</a>
-            <span class="mypage">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-            <a class="logout" href="#">로그아웃</a>
+            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <a class="name" href="/html/login.html">로그인</a>
+            <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
+            <a class="logout" onclick="GB()">로그아웃</a>
         </div>
     </div>
-    <div class="color-box"></div>
-    <hr class="hr1">
-    <div>
-        <a href="#" class="menu">홈</a>
-        <span class="menu">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-        <a href="#" class="menu">1인 가구</a>
-        <span class="menu">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-        <a href="#" class="menu">노인 복지</a>
-        <span class="menu">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-        <a href="#" class="menu">상담 신청</a>
-        <span class="menu">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-        <a href="#" class="menu">고객센터</a>
-    </div>
-    <hr class="hr2">
-    <div></div>
 
-    
-    <footer>
-        <span><a class="aa" href="이용약관">이용약관</a> | </span>
-        <span><a class="aa" href="개인정보처리방침">개인정보처리방침</a></span>
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span>저작권자 : 권태연, 한석주</span>
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span>연락처 : 010-1234-5678</span>
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span>support@dgsw.hs.kr</span>
-        <span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-        <span>© 2025 1-1</span>
-    </footer>
+    <!-- 메뉴 -->
+    <div class="menu">
+        <div class="menu1" onclick="H()">홈</div>
+        <div class="menu1" onclick="person()">1인가구 복지</div>
+        <div class="menu1" onclick="oldperson()">노인 복지</div>
+        <div class="menu1" onclick = "none()">상담</div>
+        <div class="menu1" onclick = "none()">고객 센터</div>
+    </div>
+
+    <div class="all">
+        <div class="img">
+            <div class="person">
+                <img src="../img/스크린샷 2025-06-20 오전 8.58.04.png" class="fix" />
+            </div>
+            <div class="oldperson">
+            <img src="../img/스크린샷 2025-06-20 오전 8.41.35.png" />
+            </div>
+        </div>
+        <div id="one" style="display: none;">
+            <p>신청하기</p>
+        </div>
+        <div id="oldone" style="display: none;">
+
+        </div>
+    </div>
+
+    <!-- 푸터 -->
+    <div class="footer">
+        <div class="1">저작권자 : 권태연, 한석주</div>
+        <div class="2">연락처 : 010-1234-5678</div>
+        <div class="3">support@dgsw.hs.kr</div>
+        <div class="4">© 2025 1-1</div>
+    </div>
+
+    <!-- 스크립트 -->
     <script src="../js/main.js"></script>
 </body>
 </html>

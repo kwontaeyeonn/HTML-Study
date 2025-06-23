@@ -1,75 +1,117 @@
 body{
-    margin-top: 10px;
-    width: 98vw;
-    height: 98vh;
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
 }
 .head{
+    height: 10vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
-.title {
-    position: relative;
-    top: 17px;
-    left: 20px;
-    
+
+.top{
+    display: flex;
+    align-items: center;
+    margin-right: 35px;
+    margin-top: 8px;
+}
+.h1{
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    margin-top: 15px;
 }
 a {
-    text-decoration: none;  /* 밑줄 제거 */  
-    color: black;    
-}
-.aa {
-    color: rgb(23, 23, 191);
-}
-.aa:hover {
-    text-decoration: underline; /* 커서를 올리면 밑줄 표시 */
+  text-decoration: none;  /* 밑줄 제거 */
+    color: black;      
 }
 h1{
     margin-top:0px;
     margin-bottom: 0px;
 }
 .mypage{
-    position: relative;
-    top: 13px;
-    right: 40px;
-    font-weight: bold;
+    margin-right: 5px;
 }
-.login, .logout {
-    position: relative;
-    top: 13px;
-    right: 35px;
-    font-weight: bold;
+.name{
+    margin-right: 5px;
 }
-.logout {
-    color: rgb(127, 11, 11);
+.img{
+    display: flex;
+    width: 100vw;
+    height: 64vh;
 }
-.hr1 {
-    position: relative;
-    top: -10px;
+.footer{
+    color:rgb(201, 201, 201);
+    background-color: #414b64;
+    gap: 50px;
+    text-align: center;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 100vw;
+    height: 10vh;
+    margin-top: 42px;
 }
-.hr2 {
-    position: relative;
-    top: -7px;
+.person{
+    display: flex;
+    justify-content: center;
+    width: 50vw;
+    height: 64vh;
 }
-.menu {
-    position: relative;
-    top: -7px;
-    left: 130px;
-    font-size: 18px;
-    display: inline-block;
-    margin: 0 45px;
+.oldperson{
+    display: flex;
+    justify-content: center;
+    width: 50vw;
+    height: 64vh;
 }
-.color-box {
-    background-color: #f0f0f0b9; /* 원하는 배경색 */
-    height: 40px; /* 박스 높이 조절 (메뉴 높이에 맞게) */
-    width: 100%; /* 가로 끝까지 */
-    position: relative;
-    top: 40px; /* hr 위치에 맞게 조절 */
-    z-index: -1;  /* 메뉴 글자가 위로 보이도록 */
+img{
+    width: 45vw;
+    height: 64vh;
+}
+.menu{
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 9vh;
+}
+.fix{
+    width: 40vw;
+    height: 64vh;
+}
+.menu1{
+    text-align: center;
+    width: 200vw;
+    display: block;  /* hover 영역 넓게 인식 */
+    padding: 7px 0px;  /* 여백 키움: 배경만 커짐 */
+    transition: background-color 0.3s ease;
+    font-size: 16px;  /* 폰트 고정 */
+    line-height: 1.5;   /* 높이감 유지 */
+    position: relative; 
+    background-color: #d3d3d343; /* 원하는 색으로 변경 */
+}
+.menu1::after { /* 오른쪽에 | 표시 */
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 6px;      /* 선 시작 위치 */
+    height: 70%;    /* 선 길이 */
+    width: 1px;
+    background-color: black;
+}
+.menu1:last-child::after {
+    display: none; /* 맨 오른쪽에는 선 표시 X */
 }
 
-footer {
-    text-align: center; /* 내부 텍스트 및 인라인 요소 가운데 정렬 */
-    font-size: 14px;
+.menu1:hover {
+    background-color: #cacacab0;
+    cursor: pointer;
+}
+#one{
+    width: 100vw;
+    height: 81vh;
+}
+#oldone{
+    width: 100vw;
+    height: 81vh;
 }

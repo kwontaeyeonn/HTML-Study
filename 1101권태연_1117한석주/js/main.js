@@ -1,6 +1,6 @@
 
 function openPopup() {
-    window.open(".../1101권태연_1117한석주/popup/popup.html", "noticePopup", "width=500,height=500");
+    window.open("/1101권태연_1117한석주/popup/popup.html", "noticePopup", "width=500,height=500");
     let userN = localStorage.getItem("username");
     console.log(userN);
     let Uname = document.querySelector(".name");
