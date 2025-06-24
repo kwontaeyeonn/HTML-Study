@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>로그인창</title>
+    <title>Login</title>
     <link rel="stylesheet" href="../css/login.css" />
 </head>
 <body>
-    <form class="login-form">
+    <form class="login-form" id="loginForm">
         <div class="modal">
             <p>이름을 입력해주세요</p>
             <input type="text" id="username" placeholder="이름 입력" required />
@@ -27,8 +27,8 @@
             </label>
         </div>
         <div class="start">
-            <button type="button" id="restart">되돌아가기</button>
-            <button type="submit" id="bu" class="btn-green">시작하기</button>
+            <button type="button" id="restart" onclick="BACK()">되돌아가기</button>
+            <button type="button" id="bu" class="btn-green" onclick="Goback()">시작하기</button>
         </div>
     </form>
     <script src="../js/login.js"></script>

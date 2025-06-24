@@ -39,7 +39,7 @@ function openPopup() {
     function M() {
     const name = localStorage.getItem("username");
     if (name) {
-        const My = document.querySelector(".mypage").href="../mypage/mypage.html";
+        const My = document.querySelector(".mypage").href="/mypage/mypage.html";
     } else {
         alert("로그인을 해주세요");
     }
@@ -47,9 +47,9 @@ function openPopup() {
     function person() {
     const name = localStorage.getItem("username");
     if (name) {
-        const one = (document.querySelector("#one").style.display = "none");
+        const one = (document.querySelector("#one").style.display = "flex");
         const first = (document.querySelector(".img").style.display = "none");
-        const old = (document.querySelector("#oldone").style.display = "flex");
+        const old = (document.querySelector("#oldone").style.display = "none");
         const foot = (document.querySelector(".footer").style.display = "none");
     } else {
         alert("로그인을 해주세요");
@@ -64,9 +64,9 @@ function openPopup() {
     function oldperson() {
     const name = localStorage.getItem("username");
     if (name) {
-        const one = (document.querySelector("#one").style.display = "flex");
+        const one = (document.querySelector("#one").style.display = "none");
         const first = (document.querySelector(".img").style.display = "none");
-        const old = (document.querySelector("#oldone").style.display = "none");
+        const old = (document.querySelector("#oldone").style.display = "flex");
         const foot = (document.querySelector(".footer").style.display = "none");
     } else {
         alert("로그인을 해주세요");

@@ -1,61 +1,126 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>따숨이</title>
-    <link rel="stylesheet" href="../css/main.css" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>따숨이</title>
+        <link rel="stylesheet" href="../css/main.css" />
     </head>
     <body onload="openPopup()">
-    <!-- 헤더 -->
-    <div class="head">
+        <!-- 헤더 -->
+        <div class="head">
         <div class="h1">
-            <h1>따숨이</h1>
+            <p>따숨이</p>
         </div>
         <div class="top">
-            <a class="mypage">마이 페이지</a>
+            <a class="mypage" onclick="M()">마이 페이지</a>
             <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-            <a class="name" href="/html/login.html">로그인</a>
+            <a class="name" href="../html/login.html">로그인</a>
             <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
             <a class="logout" onclick="GB()">로그아웃</a>
         </div>
-    </div>
+        </div>
 
     <!-- 메뉴 -->
-    <div class="menu">
+        <div class="menu">
         <div class="menu1" onclick="H()">홈</div>
         <div class="menu1" onclick="person()">1인가구 복지</div>
         <div class="menu1" onclick="oldperson()">노인 복지</div>
-        <div class="menu1" onclick = "none()">상담</div>
-        <div class="menu1" onclick = "none()">고객 센터</div>
-    </div>
+        <div class="menu1" onclick="none()">상담</div>
+        <div class="menu1" onclick="none()">고객 센터</div>
+        </div>
 
-    <div class="all">
+        <div class="all">
         <div class="img">
             <div class="person">
-                <img src="../img/스크린샷 2025-06-20 오전 8.58.04.png" class="fix" />
+            <img
+                src="../img/스크린샷 2025-06-20 오전 8.58.04.png"
+                class="fix"
+            />
             </div>
             <div class="oldperson">
             <img src="../img/스크린샷 2025-06-20 오전 8.41.35.png" />
             </div>
         </div>
-        <div id="one" style="display: none;">
-            <p>신청하기</p>
-        </div>
-        <div id="oldone" style="display: none;">
+        <div id="one" style="display: none">
+            <div class="OF">
+            <h2>저소득 어르니 무료틀니 지원사업(현급지급, 매월)</h2>
+            <h3>
+                지원대상 : 달서구 주민 중 만 65세 이상 국민기초생활 수급자 및
+                차상위건강보험전환자
+            </h3>
+            <p>
+                서비스 내용: 노인의치(틀니) 시술비용 지원 및 사후관리, 완전틀니,
+                부분틀니 본인부담금 5~15% 지원(단, 부분의치 양악지원 경우 지대치
+                보철 최대 6개까지 지원)
+            </p>
+            <button id="please" onclick="disapear()">신청하기</button>
+            <div class="line"></div>
+            </div>
+            <div class="OS">
+            <h2>치매감별검사비 확대 지원(기타, 1회성)</h2>
+            <h3>
+                지원 대상 : 만 60세 이상으로 주민등록상 부평구에 거주(신청일 기준),
+                치매 안심센터에서 진단검사 시행 후 치매로 진단받아 치매감별검사가
+                필요한 자
+            </h3>
+            <p>
+                서비스 내용: 검사-영상의학검사, 진단의학검사, 전문의 진창/ 지원금액
+                - 의워느병워느종합병원 상한 8만원 및 상급종합병원 상한 11만원
+            </p>
+            <button id="please" onclick="disapear1()">신청하기</button>
+            <div class="line"></div>
+            </div>
 
+            <div class="OT">
+            <h2>안전지팡이 지원(현급지급, 수시)</h2>
+            <h3>
+                지원대상 : 광주광역시 서구에 주소를 두고 거주하는 65세 이상 저소득
+                노인 중 신체활동이 불편한자
+            </h3>
+            <p>
+                서비스 내용 : 지원횟수는 3년에 1회로 제한, 안전지팡이 수리 및 교체
+                비용 본인 부담, 허위 또는 부정한 방법으로 지원 받은 경우 지원금 회수
+            </p>
+            <button id="please" onclick="disapear2()">신청하기</button>
+            <div class="line"></div>
+            </div>
         </div>
-    </div>
+        <div id="oldone" style="display: none">
+            <div class="Pf">
+            <h2>1인가구 샐활불편해소 서비스(기타, 수시)</h2>
+            <h3>지원대상 : 서초구에 거주 하는 1인가구</h3>
+            <p>서비스 내용: 집안내 소규모 수선수리비 지원 등 (연 10만원 이내, 5만원 이내)</p>
+            <button id="please" onclick="disapear3()">신청하기</button>
+            <div class="line"></div>
+            </div>
+            <div class="Ps">
+            <h2>긴급복지지원</h2>
+            <h3>지원 대상 : 갑작스런 위기상황으로 생계 등이 어려운 가구</h3>
+            <p>서비스 내용 : 1인가구 - 720,500
+    </p>
+            <button id="please" onclick="disapear4()">신청하기</button>
+            <div class="line"></div>
+            </div>
+            <div class="Pt">
+            <h2>안심홈세트 지원사업</h2>
+            <h3>지원 대상 : 1인 여성 가구, 청년*고령자 1인 가구 (지자체별 상이)</h3>
+            <p>서비스 내용 : 주거 불안과 범죄 노출 위험이 높은 1인가구 (특히 여성과 청년)을 위해 보안 장비를 무상 설치해 주는 지자체 중심 사업</p>
+            <button id="please" onclick="disapear5()">신청하기</button>
+            <div class="line"></div>
+            </div>
+        </div>
+        </div>
 
-    <!-- 푸터 -->
-    <div class="footer">
+        <!-- 푸터 -->
+        <div class="footer">
         <div class="1">저작권자 : 권태연, 한석주</div>
         <div class="2">연락처 : 010-1234-5678</div>
         <div class="3">support@dgsw.hs.kr</div>
         <div class="4">© 2025 1-1</div>
-    </div>
+        </div>
 
-    <!-- 스크립트 -->
-    <script src="../js/main.js"></script>
-</body>
+        <!-- 스크립트 -->
+        <script src="../js/main.js"></script>
+    </body>
 </html>
