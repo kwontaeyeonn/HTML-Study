@@ -1,35 +1,46 @@
+// 팝업 열기 함수
 function openPopup() {
-    const pleft = window.screenX;
-    const ptop = window.screenY;
-    const L = pleft + 10;
-    const R = ptop + 10;
+    const pleft = window.screenX;  // 현재 창의 화면 X 좌표
+    const ptop = window.screenY;   // 현재 창의 화면 Y 좌표
+    const L = pleft + 10;          // 팝업 왼쪽 위치 (현재 창 기준 +10)
+    const R = ptop + 10;           // 팝업 위쪽 위치 (현재 창 기준 +10)
+
+    // 팝업 창 열기
     window.open(
         "../popup/popup.html",
         "noticePopup",
         `width=600,height=500,left=${L},top=${R}`
     );
 
+    // 로컬스토리지에서 username 가져오기
     let userN = localStorage.getItem("username");
     console.log(userN);
+
+    // .name 클래스를 가진 요소 찾기
     let Uname = document.querySelector(".name");
     if (Uname) {
         if (userN) {
+            // 로그인 상태면 사용자 이름 표시 및 href 비활성화
             Uname.innerHTML = `${userN}님`;
             Uname.href = "#";
         } else {
+            // 로그인 안 되어있으면 '로그인' 텍스트 표시 및 로그인 페이지 링크
             Uname.innerText = "로그인";
             Uname.href = "../html/login.html";
         }
     }
 }
 
+// 기본 form 제출 방지용 함수 (사용처 확인 필요)
 function showResult(event) {
     event.preventDefault();
 }
 
+// 로그아웃 처리 함수
 function GB() {
     let userN = localStorage.getItem("username");
     if (userN) {
+        // 로그인 되어 있으면 로컬스토리지 값 삭제 후 팝업 열기
         localStorage.removeItem("username");
         localStorage.removeItem("user");
         localStorage.removeItem("call");
@@ -40,6 +51,7 @@ function GB() {
     }
 }
 
+// 마이페이지 모달 열기 함수
 function M() {
     const name = localStorage.getItem("username");
     if (name) {
@@ -51,17 +63,18 @@ function M() {
     }
 }
 
+// 마이페이지 모달 닫기 함수
 function closeMypage() {
     document.getElementById("mypageModal").style.display = "none";
     document.getElementById("modalOverlay").style.display = "none"; // 오버레이 숨김
 }
 
-// 홈화면 박스 보여주는 함수 추가
+// 홈화면 박스 보여주는 함수
 function showHome() {
     const homeBox = document.querySelector(".box") || document.getElementById("homeBox");
     if (homeBox) homeBox.style.display = "block";
 
-    // 콘텐츠 숨김
+    // 홈화면 콘텐츠 숨기기 및 보이기 조절
     const one = document.querySelector("#one");
     const oldone = document.querySelector("#oldone");
     const imgArea = document.querySelector(".img");
@@ -73,7 +86,7 @@ function showHome() {
     if (footer) footer.style.display = "flex";
 }
 
-// 1인 복지 클릭
+// 1인 복지 클릭 시 처리 함수
 function person() {
     const name = localStorage.getItem("username");
     if (name) {
@@ -81,6 +94,7 @@ function person() {
         const homeBox = document.querySelector(".box") || document.getElementById("homeBox");
         if (homeBox) homeBox.style.display = "none";
 
+        // 화면 구성 변경
         const one = document.querySelector("#one");
         const oldone = document.querySelector("#oldone");
         const imgArea = document.querySelector(".img");
@@ -95,7 +109,7 @@ function person() {
     }
 }
 
-// 노인 복지 클릭
+// 노인 복지 클릭 시 처리 함수
 function oldperson() {
     const name = localStorage.getItem("username");
     if (name) {
@@ -103,6 +117,7 @@ function oldperson() {
         const homeBox = document.querySelector(".box") || document.getElementById("homeBox");
         if (homeBox) homeBox.style.display = "none";
 
+        // 화면 구성 변경
         const one = document.querySelector("#one");
         const oldone = document.querySelector("#oldone");
         const imgArea = document.querySelector(".img");
@@ -122,10 +137,12 @@ function H() {
     showHome();
 }
 
+// 개발 중인 페이지 알림 함수
 function none() {
-    alert("이페이지는 개발중입니다.");
+    alert("이 페이지는 개발중입니다.");
 }
 
+// 신청하기 후 해당 박스 숨기고 로컬스토리지에 저장 및 알림
 function disapear() {
     const name = document.querySelector(".OF h2").innerText;
     localStorage.setItem("please1", name);
@@ -169,6 +186,7 @@ function disapear5() {
     alert(`${name}이 신청되었습니다.`);
 }
 
+// 페이지 로드 시 로컬스토리지에 신청 기록이 있으면 해당 박스 숨김 처리
 document.addEventListener("DOMContentLoaded", function () {
     const classList = ["OF", "OS", "OT", "Pf", "Ps", "Pt"];
 
@@ -182,9 +200,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// 신청 목록을 모달 내 리스트에 출력하는 함수
 function loadApplyList() {
     const listEl = document.getElementById("applyList");
-    listEl.innerHTML = ""; // 초기화
+    listEl.innerHTML = ""; // 기존 내용 초기화
 
     const applyKeys = ["please1", "please2", "please3", "please4", "please5", "please6"];
 
@@ -197,9 +216,42 @@ function loadApplyList() {
         }
     });
 
+    // 신청 내역 없으면 안내 문구 표시
     if (listEl.children.length === 0) {
         const li = document.createElement("li");
         li.textContent = "신청 내역이 없습니다.";
         listEl.appendChild(li);
     }
 }
+
+// 슬라이드 쇼 관련 변수 및 요소
+let currentSlide = 0;
+const slides = document.querySelectorAll(".slide");
+
+// 특정 인덱스 슬라이드 보여주기 함수
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        slide.classList.remove("active");
+        if (i === index) slide.classList.add("active");
+    });
+}
+
+// 이전 슬라이드 보여주기
+function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+}
+
+// 다음 슬라이드 보여주기
+function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+}
+
+// DOM 로드 완료 시 첫 번째 슬라이드 보여주기
+document.addEventListener("DOMContentLoaded", () => {
+    showSlide(currentSlide);
+
+    // 3초(3000ms)마다 자동으로 다음 슬라이드 보여주기
+    setInterval(nextSlide, 3000);
+});
