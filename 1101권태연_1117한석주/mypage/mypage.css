@@ -1,16 +1,77 @@
-body{
+/* 기본 바디 스타일 */
+body {
+    margin: 0;
+    height: 100vh;               /* 화면 높이 100% 고정 */
+    background-color: #D8D8D8;
+    font-family: 'Noto Sans KR', sans-serif;
+    display: flex;
+    justify-content: center;     /* 수평 중앙 */
+    align-items: flex-start;     /* 세로는 위쪽 정렬 */
+    padding-top: 40px;           /* 위쪽에 공간 주기 */
+    box-sizing: border-box;
+}
+
+/* 최상위 컨테이너 */
+.result {
     width: 100vw;
     height: 100vh;
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;     /* 세로는 위쪽 정렬 */
 }
-.result{
-    width: 50vw;
-    height: 50vh;
+
+/* 내부 래퍼 */
+.wrapper {
+    max-width: 500px;
+    width: 85%;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    padding: 20px 30px 30px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    /* 높이 제한 제거 */
 }
-h1{
+
+/* 제목 스타일 */
+h2 {
     text-align: center;
+    margin-top: 0;
+    font-size: 24px;
+}
+
+/* 신청 목록 스타일 */
+.list {
+    list-style-type: disc;
+    padding-left: 30px;
+    color: #444;
+    width: 100%;
+    margin: 10px 0;
+}
+
+/* 목록 아이템 */
+.list li {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+/* 돌아가기 버튼 */
+#restart {
+    display: block;
+    margin-top: 15px;
+    margin-left: auto;
+    padding: 8px 16px;
+    background-color: rgb(225, 220, 214);
+    border-radius: 6px;
+    border: 1px solid rgb(173, 166, 159);
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+/* 버튼 호버 효과 */
+#restart:hover {
+    background-color: rgb(195, 187, 179);
 }
