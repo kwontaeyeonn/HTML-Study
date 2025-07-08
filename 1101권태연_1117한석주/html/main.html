@@ -1,53 +1,126 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>따숨이</title>
-        <link rel="stylesheet" href="../css/main.css" />
-    </head>
-    <body onload="openPopup()">
-        <div id="modalOverlay" class="modal-overlay" style="display: none;"></div>
-        <!-- 헤더 -->
-        <div class="head">
-        <div class="h1">
+<head>
+    <meta charset="UTF-8" />
+    <!-- 반응형 뷰포트 설정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>따숨이</title>
+    <!-- 외부 CSS 링크 -->
+    <link rel="stylesheet" href="../css/main.css" />
+    <style>
+        /* 기본 html 폰트 크기 설정 */
+        html {
+            font-size: 16px;
+        }
+        /* 화면 너비가 1200px 이하일 때 폰트 크기 조정 */
+        @media screen and (max-width: 1200px) {
+            html {
+                font-size: 14px;
+            }
+        }
+        /* 화면 너비가 992px 이하일 때 폰트 크기 조정 */
+        @media screen and (max-width: 992px) {
+            html {
+                font-size: 13px;
+            }
+        }
+        /* 화면 너비가 768px 이하일 때 폰트 크기 조정 */
+        @media screen and (max-width: 768px) {
+            html {
+                font-size: 12px;
+            }
+        }
+        /* 화면 너비가 576px 이하일 때 폰트 크기 조정 */
+        @media screen and (max-width: 576px) {
+            html {
+                font-size: 11px;
+            }
+        }
+        /* 기본 텍스트 요소들의 기본 폰트 크기 설정 */
+        body, h1, h2, h3, p, a, button {
+            font-size: 1rem;
+        }
+        /* 제목 태그별 폰트 크기 조절 */
+        h1 {
+            font-size: 2rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+        }
+        h3 {
+            font-size: 1.2rem;
+        }
+        /* 빠른 링크 버튼 폰트 크기 */
+        .quick-btn {
+            font-size: 1rem;
+        }
+        /* 메뉴 텍스트 크기 */
+        .menu1 {
+            font-size: 1rem;
+        }
+        /* 큰 제목 스타일 */
+        .title {
+            font-size: 2.5rem;
+        }
+        /* 더 큰 제목 스타일 */
+        .title1 {
+            font-size: 3.5rem;
+        }
+    </style>
+</head>
+<body onload="openPopup()">
+    <!-- 팝업 오버레이 (기본은 숨김) -->
+    <div id="modalOverlay" class="modal-overlay" style="display: none"></div>
+
+    <!-- 헤더 영역 -->
+    <div class="head">
+        <!-- 로고 이미지 클릭 시 홈으로 이동 -->
+        <div class="h1" onclick="H()" style="cursor: pointer;">
             <img class="h1" src="../imges/title.png" alt="따숨이">
         </div>
+        <!-- 상단 우측 마이페이지, 로그인, 로그아웃 메뉴 -->
         <div class="top">
-            <a class="mypage"onclick="M()">마이 페이지</a>
+            <a class="mypage" onclick="M()">마이 페이지</a>
             <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
             <a class="name" href="../html/login.html">로그인</a>
             <span>&nbsp;&nbsp;|&nbsp;&nbsp;</span>
             <a class="logout" onclick="GB()">로그아웃</a>
         </div>
-        </div>
+    </div>
 
-        <!-- 메뉴 -->
-        <div class="menu">
-            <div class="menu1" onclick="H()">홈</div>
-            <div class="menu1" onclick="person()">1인가구 복지</div>
-            <div class="menu1" onclick="oldperson()">노인 복지</div>
-            <div class="menu1" onclick="none()">상담</div>
-            <div class="menu1" onclick="none()">고객 센터</div>
-        </div>
+    <!-- 네비게이션 메뉴 -->
+    <div class="menu">
+        <div class="menu1" onclick="H()">홈</div>
+        <div class="menu1" onclick="person()">1인가구 복지</div>
+        <div class="menu1" onclick="oldperson()">노인 복지</div>
+        <div class="menu1" onclick="none()">상담</div>
+        <div class="menu1" onclick="none()">고객 센터</div>
+    </div>
 
-        <div class="box" id="homeBox">
-            <div class="text-overlay">
-                <p class="title">대한민국 대표 복지포털</p>
-                <p class="title1">따숨이</p>
-                <p>&nbsp;</p> 
-                <p>따숨이는 여러분의 복지를 따뜻하게 챙기기 위해 탄생한 포털이에요.</p>
-                <p>생활에 꼭 필요한 복지 정보를 쉽고 편리하게 만나보세요!</p>
-                <div class="quick-links">
-                    <button class="quick-btn" onclick="person()">1인가구 복지 →</button>
-                    <button class="quick-btn" onclick="oldperson()">노인 복지 →</button>
-                </div>
+    <!-- 홈 박스 메인 콘텐츠 -->
+    <div class="box" id="homeBox">
+        <div class="text-overlay">
+            <!-- 포털 소개 제목들 -->
+            <p class="title">대한민국 대표 복지포털</p>
+            <p class="title1">따숨이</p>
+            <p>따숨이는 여러분의 복지를 따뜻하게 챙기기 위해 탄생한 포털이에요.</p>
+            <p>생활에 꼭 필요한 복지 정보를 쉽고 편리하게 만나보세요!</p>
+
+            <!-- 빠른 이동 버튼 -->
+            <div class="quick-links">
+                <button class="quick-btn" onclick="person()">1인가구 복지 →</button>
+                <button class="quick-btn" onclick="oldperson()">노인 복지 →</button>
             </div>
-            <img class="original-img" src="../imges/Group 2.png" alt="로고 이미지">
+        </div>
+        <!-- 홈 로고 이미지 -->
+        <img class="original-img" src="../imges/Group 2.png" alt="로고 이미지" />
 
-            <div class="slider">
+        <!-- 이미지 슬라이더 -->
+        <div class="slider">
+            <!-- 이전 버튼 -->
             <button class="slider-btn left" onclick="prevSlide()">&#8249;</button>
             <div class="slider-inner">
+                <!-- 슬라이드 이미지들 -->
                 <img src="../imges/Group 6.png" class="slide" />
                 <img src="../imges/Group 5.png" class="slide" />
                 <img src="../imges/Group 4.png" class="slide" />
@@ -56,108 +129,129 @@
                 <img src="../imges/Group 9.png" class="slide" />
                 <img src="../imges/Group 10.png" class="slide" />
             </div>
+            <!-- 다음 버튼 -->
             <button class="slider-btn right" onclick="nextSlide()">&#8250;</button>
-            </div>
         </div>
+    </div>
 
-        <div class="all" id="contentArea">
+    <!-- 컨텐츠 영역 (동적으로 내용 표시) -->
+    <div class="all" id="contentArea">
+        <!-- 1인가구 복지 관련 내용 (초기 숨김) -->
         <div id="one" style="display: none">
+            <!-- 저소득 어르니 무료틀니 지원사업 -->
             <div class="OF">
-            <h2>저소득 어르니 무료틀니 지원사업(현급지급, 매월)</h2>
-            <h3>
-                지원대상 : 달서구 주민 중 만 65세 이상 국민기초생활 수급자 및
-                차상위건강보험전환자
-            </h3>
-            <p>
-                서비스 내용: 노인의치(틀니) 시술비용 지원 및 사후관리, 완전틀니,
-                부분틀니 본인부담금 5~15% 지원(단, 부분의치 양악지원 경우 지대치
-                보철 최대 6개까지 지원)
-            </p>
-            <button id="please" onclick="disapear()">신청하기</button>
-            <div class="line"></div>
-        </div>
+                <h2>저소득 어르니 무료틀니 지원사업(현급지급, 매월)</h2>
+                <h3>
+                    지원대상 : 달서구 주민 중 만 65세 이상 국민기초생활 수급자 및
+                    차상위건강보험전환자
+                </h3>
+                <p>
+                    서비스 내용: 노인의치(틀니) 시술비용 지원 및 사후관리, 완전틀니,
+                    부분틀니 본인부담금 5~15% 지원(단, 부분의치 양악지원 경우 지대치
+                    보철 최대 6개까지 지원)
+                </p>
+                <button id="please" onclick="disapear()">신청하기</button>
+                <div class="line"></div>
+            </div>
+
+            <!-- 치매감별검사비 확대 지원 -->
             <div class="OS">
-            <h2>치매감별검사비 확대 지원(기타, 1회성)</h2>
-            <h3>
-                지원 대상 : 만 60세 이상으로 주민등록상 부평구에 거주(신청일 기준),
-                치매 안심센터에서 진단검사 시행 후 치매로 진단받아 치매감별검사가
-                필요한 자
-            </h3>
-            <p>
-                서비스 내용: 검사-영상의학검사, 진단의학검사, 전문의 진창/ 지원금액
-                - 의워느병워느종합병원 상한 8만원 및 상급종합병원 상한 11만원
-            </p>
-            <button id="please" onclick="disapear1()">신청하기</button>
-            <div class="line"></div>
+                <h2>치매감별검사비 확대 지원(기타, 1회성)</h2>
+                <h3>
+                    지원 대상 : 만 60세 이상으로 주민등록상 부평구에 거주(신청일 기준),
+                    치매 안심센터에서 진단검사 시행 후 치매로 진단받아 치매감별검사가
+                    필요한 자
+                </h3>
+                <p>
+                    서비스 내용: 검사-영상의학검사, 진단의학검사, 전문의 진창/ 지원금액
+                    - 의워느병워느종합병원 상한 8만원 및 상급종합병원 상한 11만원
+                </p>
+                <button id="please" onclick="disapear1()">신청하기</button>
+                <div class="line"></div>
             </div>
 
+            <!-- 안전지팡이 지원 -->
             <div class="OT">
-            <h2>안전지팡이 지원(현급지급, 수시)</h2>
-            <h3>
-                지원대상 : 광주광역시 서구에 주소를 두고 거주하는 65세 이상 저소득
-                노인 중 신체활동이 불편한자
-            </h3>
-            <p>
-                서비스 내용 : 지원횟수는 3년에 1회로 제한, 안전지팡이 수리 및 교체
-                비용 본인 부담, 허위 또는 부정한 방법으로 지원 받은 경우 지원금 회수
-            </p>
-            <button id="please" onclick="disapear2()">신청하기</button>
-            <div class="line"></div>
+                <h2>안전지팡이 지원(현급지급, 수시)</h2>
+                <h3>
+                    지원대상 : 광주광역시 서구에 주소를 두고 거주하는 65세 이상 저소득
+                    노인 중 신체활동이 불편한자
+                </h3>
+                <p>
+                    서비스 내용 : 지원횟수는 3년에 1회로 제한, 안전지팡이 수리 및 교체
+                    비용 본인 부담, 허위 또는 부정한 방법으로 지원 받은 경우 지원금 회수
+                </p>
+                <button id="please" onclick="disapear2()">신청하기</button>
+                <div class="line"></div>
             </div>
         </div>
+
+        <!-- 노인 복지 관련 내용 (초기 숨김) -->
         <div id="oldone" style="display: none">
+            <!-- 1인가구 생활불편해소 서비스 -->
             <div class="Pf">
-            <h2>1인가구 샐활불편해소 서비스(기타, 수시)</h2>
-            <h3>지원대상 : 서초구에 거주 하는 1인가구</h3>
-            <p>서비스 내용: 집안내 소규모 수선수리비 지원 등 (연 10만원 이내, 5만원 이내)</p>
-            <button id="please" onclick="disapear3()">신청하기</button>
-            <div class="line"></div>
+                <h2>1인가구 샐활불편해소 서비스(기타, 수시)</h2>
+                <h3>지원대상 : 서초구에 거주 하는 1인가구</h3>
+                <p>
+                    서비스 내용: 집안내 소규모 수선수리비 지원 등 (연 10만원 이내, 5만원
+                    이내)
+                </p>
+                <button id="please" onclick="disapear3()">신청하기</button>
+                <div class="line"></div>
             </div>
+
+            <!-- 긴급복지지원 -->
             <div class="Ps">
-            <h2>긴급복지지원</h2>
-            <h3>지원 대상 : 갑작스런 위기상황으로 생계 등이 어려운 가구</h3>
-            <p>서비스 내용 : 1인가구 - 720,500</p>
-            <button id="please" onclick="disapear4()">신청하기</button>
-            <div class="line"></div>
+                <h2>긴급복지지원</h2>
+                <h3>지원 대상 : 갑작스런 위기상황으로 생계 등이 어려운 가구</h3>
+                <p>서비스 내용 : 1인가구 - 720,500</p>
+                <button id="please" onclick="disapear4()">신청하기</button>
+                <div class="line"></div>
             </div>
+
+            <!-- 안심홈세트 지원사업 -->
             <div class="Pt">
-            <h2>안심홈세트 지원사업</h2>
-            <h3>지원 대상 : 1인 여성 가구, 청년*고령자 1인 가구 (지자체별 상이)</h3>
-            <p>서비스 내용 : 주거 불안과 범죄 노출 위험이 높은 1인가구 (특히 여성과 청년)을 위해 보안 장비를 무상 설치해 주는 지자체 중심 사업</p>
-            <button id="please" onclick="disapear5()">신청하기</button>
-            <div class="line"></div>
+                <h2>안심홈세트 지원사업</h2>
+                <h3>
+                    지원 대상 : 1인 여성 가구, 청년*고령자 1인 가구 (지자체별 상이)
+                </h3>
+                <p>
+                    서비스 내용 : 주거 불안과 범죄 노출 위험이 높은 1인가구 (특히 여성과
+                    청년)을 위해 보안 장비를 무상 설치해 주는 지자체 중심 사업
+                </p>
+                <button id="please" onclick="disapear5()">신청하기</button>
+                <div class="line"></div>
             </div>
         </div>
-        </div>
+    </div>
 
-
-        <!-- main.html 내 body 맨 아래 쪽 (푸터 바로 위 추천) -->
-        <div id="mypageModal" class="modal" style="display:none;">
+    <!-- 마이페이지 모달 팝업 -->
+    <div id="mypageModal" class="modal" style="display: none">
         <div class="modal-content">
+            <!-- 닫기 버튼 -->
             <span class="close" onclick="closeMypage()">&times;</span>
             <h2>📋 신청 목록</h2>
-            <hr>
-            <ul id="applyList" class="list">
-            <!-- 신청 목록 JS로 삽입 -->
-            </ul>
-            <hr>
+            <hr />
+            <!-- 신청 목록이 동적으로 삽입될 리스트 -->
+            <ul id="applyList" class="list"></ul>
+            <hr />
+            <!-- 모달 하단 닫기 버튼 -->
             <div class="modal-footer">
                 <button type="button" onclick="closeMypage()">닫기</button>
             </div>
         </div>
-        </div>
+    </div>
 
-        <!-- 푸터 -->
-        <div class="footer">
+    <!-- 푸터 -->
+    <div class="footer">
         <div class="5" onclick="none()">개인정보처리방침</div>
         <div class="1">저작권자 : 권태연, 한석주</div>
         <div class="2">연락처 : 010-1234-5678</div>
         <div class="3">support@dgsw.hs.kr</div>
         <div class="4">© 2025 1-1</div>
-        </div>
+    </div>
 
-        <!-- 스크립트 -->
-        <script src="../js/main.js"></script>
-    </body>
+    <!-- 외부 JS 파일 연결 -->
+    <script src="../js/main.js"></script>
+</body>
 </html>
-

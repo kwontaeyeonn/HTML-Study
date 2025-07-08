@@ -8,32 +8,47 @@
     </head>
     <body>
     <div class="full-screen-wrapper">
-        <div class="popup-wrapper">
-            <h2>📢 따숨이 알림장</h2>
-            <hr>
+        <div class="popup-wrapper"> <!-- 공지사항 팝업 영역 -->
+            <h2>📢 따숨이 알림장</h2> <!-- 공지사항 제목 -->
+            <hr> 
+
+            <!-- 간략 공지 리스트 -->
             <ul class="summary-list">            
-                <li>2025년 7월, 기초연금 금액 인상 안내</li>
-                <li>1인 가구 건강검진 신청하세요!</li>
+                <li>2025년 7월, 기초연금 금액 인상 안내</li> <!-- 공지 요약 항목 -->
+                <li>1인 가구 건강검진 신청하세요!</li> <!-- 공지 요약 항목 -->
             </ul>
             <hr>
-            <div class="notice-list">
-                <div class="notice-card">
-                    <p class="notice">기초연금 지급일 변경 안내</p>
-                    <p>2025년 7월부터 기초연금 지급일이 매월 20일로 변경됩니다.</p>
-                    <span class="date">2025-06-20</span>
-                </div>
-                <div class="notice-card">
-                    <p class="notice">무더위 쉼터 이용 방법</p>
-                    <p>어르신을 위한 냉방쉼터가 동주민센터 및 경로당에 마련되어 있습니다.</p>
-                    <span class="date">2025-06-18</span>
-                </div>
-                <div class="notice-card">
-                    <p class="notice">노인 건강검진 신청 안내</p>
-                    <p>65세 이상 어르신은 무료 건강검진 대상입니다. 건강보험공단을 통해 신청하세요.</p>
-                    <span class="date">2025-06-15</span>
-                </div>
-            </div>
-            <button class="close" onclick = "javascript:window.close()">닫기</button>
+
+            <!-- 공지사항 상세 내용을 표 형태로 표현 -->
+            <table class="notice-table">
+                <thead>
+                    <tr>
+                        <th>제목</th> <!-- 공지 제목 열 -->
+                        <th>내용</th> <!-- 공지 내용 열 -->
+                        <th>날짜</th> <!-- 공지 날짜 열 -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>기초연금 지급일 변경 안내</td> <!-- 공지 제목 -->
+                        <td>2025년 7월부터 기초연금 지급일이 매월 20일로 변경됩니다.</td> <!-- 공지 내용 -->
+                        <td>2025-06-20</td> <!-- 공지 날짜 -->
+                    </tr>
+                    <tr>
+                        <td>무더위 쉼터 이용 방법</td>
+                        <td>어르신을 위한 냉방쉼터가 동주민센터 및 경로당에 마련되어 있습니다.</td>
+                        <td>2025-06-18</td>
+                    </tr>
+                    <tr>
+                        <td>노인 건강검진 신청 안내</td>
+                        <td>65세 이상 어르신은 무료 건강검진 대상입니다. 건강보험공단을 통해 신청하세요.</td>
+                        <td>2025-06-15</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- 팝업 닫기 버튼 -->
+            <button class="close" onclick="window.close()">닫기</button>
         </div>
     </div>
     </body>

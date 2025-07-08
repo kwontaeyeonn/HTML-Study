@@ -1,385 +1,530 @@
-body {
-    margin: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow-x: hidden; /* 가로 스크롤 방지 */
+/* 데스크탑 및 넓은 화면용 스타일 (화면 너비 847px 이상) */
+@media screen and (min-width: 847px) {
+    /* body 전체 화면 크기 지정 및 가로 스크롤 숨김 */
+    body {
+        margin: 0;
+        width: 100vw;  /* 뷰포트 너비 100% */
+        height: 100vh; /* 뷰포트 높이 100% */
+        overflow-x: hidden; /* 가로 스크롤 방지 */
+    }
+
+    /* 헤더 영역: 높이 13vh, flex로 좌우 공간 분배 및 세로 중앙 정렬 */
+    .head {
+        height: 13vh;
+        display: flex;
+        justify-content: space-between; /* 좌우 요소 최대 간격 */
+        align-items: center; /* 세로 중앙 정렬 */
+    }
+
+    /* 마이페이지, 사용자 이름, 로그아웃 링크에 마우스 커서가 포인터로 변함 */
+    a.mypage,
+    a.name,
+    a.logout {
+        cursor: pointer;
+    }
+
+    /* 이름 링크에 마우스 오버 시 빨간 계열 색상으로 변경 */
+    .name:hover {
+        color: rgb(142, 20, 20);
+    }
+    /* 로그아웃 링크에 마우스 오버 시 파란 계열 색상으로 변경 */
+    .logout:hover {
+        color: rgb(33, 33, 157);
+    }
+    /* 마이페이지 링크에 마우스 오버 시 초록 계열 색상으로 변경 */
+    .mypage:hover {
+        color: #137527;
+    }
+
+    /* 상단 영역: flex로 컨텐츠 좌우 정렬 및 마진 조정 */
+    .top {
+        display: flex;
+        align-items: center;
+        margin-right: 35px; /* 오른쪽 공간 확보 */
+        margin-top: 15px;   /* 위쪽 공간 확보 */
+    }
+
+    /* h1 클래스 영역: flex 정렬, 좌측 마진 및 너비 지정 */
+    .h1 {
+        display: flex;
+        align-items: center;
+        margin-left: 13px; /* 왼쪽 여백 */
+        margin-top: 9px;   /* 위쪽 여백 */
+        width: 130px;      /* 고정 너비 */
+    }
+
+    /* 모든 a 태그 밑줄 제거 및 텍스트 색상을 기본 검정색으로 지정 */
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+    /* 마이페이지 및 이름 링크 사이에 오른쪽 마진을 줘서 간격 조절 */
+    .mypage {
+        margin-right: 5px;
+    }
+    .name {
+        margin-right: 5px;
+    }
+
+    /* 이미지 영역: 가로 100vw, 높이 64vh, flex로 내부 요소 가로 정렬 */
+    .img {
+        display: flex;
+        width: 100vw;
+        height: 64vh;
+    }
+
+    /* 약관 링크: 회색 계열 색상, 밑줄 제거 */
+    .term a {
+        color: rgb(201, 201, 201);
+        text-decoration: none;
+    }
+
+    /* 푸터 영역: 텍스트 회색, 배경색 지정, 가로 100vw, 높이 10vh, 중앙 정렬 */
+    .footer {
+        color: rgb(201, 201, 201);
+        background-color: #3f4b6d;
+        gap: 50px; /* 내부 아이템 간격 */
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 10vh;
+        margin-top: 42px; /* 위쪽 공간 확보 */
+    }
+
+    /* 메뉴 영역: flex, 세로 중앙 정렬, 높이 9vh, 너비 100vw */
+    .menu {
+        display: flex;
+        align-items: center;
+        width: 100vw;
+        height: 9vh;
+        padding: 0 0px; /* 좌우 패딩 없음 */
+        box-sizing: border-box;
+    }
+
+    /* fix 클래스: 너비 40vw, 높이 64vh (반응형 배치에 활용 가능) */
+    .fix {
+        width: 40vw;
+        height: 64vh;
+    }
+
+    /* 메뉴1 클래스: 텍스트 중앙 정렬, 유동 너비(flex:1), 패딩, 배경색 지정 */
+    .menu1 {
+        text-align: center;
+        width: auto;
+        flex: 1;  /* flex-grow:1 */
+        display: block;
+        padding: 7px 10px;
+        transition: background-color 0.3s ease; /* 배경색 부드럽게 변경 */
+        font-size: 16px;
+        line-height: 1.5;
+        position: relative; /* 구분선 위치 절대 지정 위해 */
+        background-color: #c1d0d584; /* 반투명 파란색 */
+        cursor: pointer;
+    }
+
+    /* 메뉴1 클래스의 ::after 가상요소로 오른쪽에 세로 구분선 추가 */
+    .menu1::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 6px;
+        height: 70%; /* 세로 길이 70% */
+        width: 1px;   /* 굵기 1px */
+        background-color: rgb(0, 0, 0); /* 검정색 */
+    }
+
+    /* 마지막 메뉴1은 구분선 제거 */
+    .menu1:last-child::after {
+        display: none;
+    }
+
+    /* 메뉴1 마우스 오버 시 배경색 변경 */
+    .menu1:hover {
+        background-color: #7497a584; /* 반투명 어두운 파란색 */
+    }
+
+    /* #one, #oldone 영역: 세로 스크롤 가능하도록 flex 컬럼으로 설정 */
+    #one,
+    #oldone {
+        width: 100vw;
+        height: 81vh;
+        display: flex;
+        flex-direction: column; /* 세로 배치 */
+        overflow-y: auto;       /* 세로 스크롤 */
+    }
+
+    /* please 아이디 버튼 위치 지정: 왼쪽으로 1200px 이동, 위쪽 10px 마진 */
+    #please {
+        margin-left: 1200px;
+        display: block;
+        margin-top: 10px;
+    }
+
+    /* line 클래스: 검정색 1px 높이 가로 구분선 */
+    .line {
+        background-color: black;
+        width: 86vw;
+        height: 1px;
+        margin: 10px 0;
+    }
+
+    /* 모든 버튼 기본 스타일: 파란 배경, 흰색 텍스트, 둥근 테두리 */
+    button {
+        background-color: #0c4ab5;
+        border-radius: 8px;
+        border: 3px solid #0c4ab5;
+        color: white;
+        cursor: pointer;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    /* h3 제목 태그: 아래쪽 마진 제거 */
+    h3 {
+        margin-bottom: 0;
+    }
+
+    /* p 태그: 기본 마진 제거 */
+    p {
+        margin: 0px;
+    }
+
+    /* 모달창: 화면 중앙에 고정, 최대 높이 제한, 스크롤 가능 */
+    .modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        max-height: 60vh;
+        background: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        border-radius: 10px;
+        padding: 20px;
+        overflow-y: auto; /* 내부 스크롤 가능 */
+        z-index: 9999;
+    }
+
+    /* 모달 내부 컨텐츠 flex 컬럼 배치 */
+    .modal-content {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 모달 하단 버튼 영역: 우측 정렬 */
+    .modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 10px;
+    }
+
+    /* 모달 내 버튼 기본 스타일 */
+    .modal-footer button {
+        width: auto;
+        min-width: 80px;
+        padding: 8px 16px;
+        font-size: 14px;
+        background-color: #0c4ab5;
+        color: white;
+        border: 3px solid #0c4ab5;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    /* 모달 닫기 버튼 위치, 크기, 커서 지정 */
+    .close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        user-select: none; /* 텍스트 선택 방지 */
+    }
+
+    /* 모달 배경 오버레이: 화면 전체, 반투명 검정 */
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    /* 수평 구분선: 높이 1px, 회색 배경 */
+    hr {
+        border: none;
+        height: 1px;
+        background-color: #ccc;
+        margin: 10px 0;
+    }
+
+    /* 원본 이미지 스타일: 중앙 배치, 최대 크기 제한, 둥근 테두리 */
+    .original-img {
+        display: block;
+        margin: 47px auto 0;
+        max-width: 90%;
+        max-height: 80vh;
+        border: 5px solid rgba(154, 192, 213, 0.31);
+        border-radius: 33px;
+    }
+
+    /* box 클래스: position relative로 텍스트 오버레이 위치 조정 용이 */
+    .box {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* 텍스트 오버레이: 이미지 위에 절대 위치, 크기와 위치 지정 */
+    .text-overlay {
+        position: absolute;
+        left: 7%;          /* 이미지 왼쪽으로부터 7% 위치 */
+        top: 22%;          /* 이미지 위쪽으로부터 22% 위치 */
+        transform: translateY(-50%); /* 수직 중심 맞춤 */
+        padding: 5px 10px;
+        font-weight: bold;
+        width: 70vw;
+        height: 31vh;
+        z-index: 10;       /* 이미지보다 위에 보이도록 */
+    }
+
+    /* 큰 제목 스타일: 그라데이션 텍스트, 큰 폰트 크기 */
+    .title {
+        font-size: 40px;
+        font-weight: bold;
+        background: linear-gradient(90deg, #00c6ff, #0072ff); /* 좌우 그라데이션 */
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+        margin: 0 0 10px 0; /* 아래쪽 마진 10px */
+    }
+
+    /* 더 큰 제목 스타일: 더 큰 글씨와 진한 그라데이션 */
+    .title1 {
+        font-size: 55px;
+        font-weight: bold;
+        background: linear-gradient(90deg, #00c6ff, #0b3d7a);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+        margin: 0 0 10px 0;
+    }
+
+    /* 빠른 버튼 스타일: 진한 파란 배경과 흰색 텍스트, 부드러운 전환 효과 */
+    .quick-btn {
+        background-color: #2c74b3;
+        color: white;
+        border: 2px solid #2c74b3;
+        border-radius: 8px;
+        padding: 4px 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    /* 빠른 버튼 호버 시 어두운 파란색 배경으로 변경 */
+    .quick-btn:hover {
+        background-color: #083a8f;
+    }
+
+    /* 빠른 링크 버튼 그룹: 가로 방향으로 간격 15px 유지 */
+    .quick-links {
+        margin-top: 16px;
+        display: flex;
+        gap: 15px;
+        width: 100%;
+        margin-left: 0;
+    }
+
+    /* 슬라이더 컨테이너: 중앙 정렬, 특정 비율 유지, 둥근 테두리, 그림자 */
+    .slider {
+        position: relative;
+        width: 90%;
+        max-width: 1200px;
+        aspect-ratio: 2662 / 1000; /* 비율 유지 */
+        margin: 80px auto; /* 위아래 마진, 좌우 자동 중앙 */
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 슬라이더 내부 이미지 그룹: 가로 flex로 배치, 부드러운 변환 효과 */
+    .slider-inner {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s ease;
+    }
+
+    /* 각 슬라이드 이미지: 기본적으로 숨김 처리, 투명도 0 */
+    .slide {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        display: none;
+        border-radius: 12px;
+        transition: opacity 0.8s ease-in-out;
+    }
+
+    /* 활성 슬라이드는 보이고 불투명도 1 */
+    .slide.active {
+        display: block;
+        opacity: 1;
+    }
+
+    /* 슬라이더 좌우 버튼 기본 스타일: 중앙 수직 위치, 원형, 그림자 */
+    .slider-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: white;
+        color: #083a8f;
+        border: none;
+        font-size: 28px;
+        padding: 15px 25px;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 10;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    /* 슬라이더 버튼 마우스 오버 시 배경과 색상 변경, 크기 살짝 확대 */
+    .slider-btn:hover {
+        background-color: darkblue;
+        color: white;
+        transform: translateY(-50%) scale(1.05);
+    }
+
+    /* 좌측 버튼 위치: 왼쪽 20px */
+    .slider-btn.left {
+        left: 20px;
+    }
+
+    /* 우측 버튼 위치: 오른쪽 20px */
+    .slider-btn.right {
+        right: 20px;
+    }
+}
+/* OS, OF 등 클래스들: 컨텐츠 박스 기본 스타일 */
+.OF, .OS, .OT, .OA, .Pf, .Ps, .Pt {
+    margin-left: 100px;      /* 좌측 여백으로 정렬 위치 지정 */
+    width: 100%;             /* 가로 전체 꽉 채우기 */
+    height: 25vh;            /* 높이 뷰포트 기준 25% */
+    box-sizing: border-box;  /* 패딩, 테두리 포함해서 크기 계산 */
 }
 
-.head {
-    height: 13vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
-a.mypage,
-a.name,
-a.logout {
-    cursor: pointer;
-}
+/* 반응형: 화면 너비 847px 이하, 모바일 등 소형 기기용 스타일 */
+@media screen and (max-width: 847px) {
+    /* 슬라이더 및 관련 요소 전부 숨기기 */
+    .slider, .slider-inner, .slide, .slide.active, .slider-btn {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        width: 0 !important;
+        height: 0 !important;
+        pointer-events: none !important; /* 클릭 방지 */
+    }
 
-.name:hover {
-    color: rgb(142, 20, 20);
-}
-.logout:hover {
-    color: rgb(33, 33, 157);
-}
-.mypage:hover {
-    color: #137527;
-}
+    /* 반응형 미디어쿼리 내에도 포함 */
+        .OF, .OS, .OT, .OA, .Pf, .Ps, .Pt {
+            margin-left: 20px;   /* 모바일에서는 좌측 여백 줄임 */
+            width: calc(100% - 40px); /* 좌우 여백 감안한 너비 조절 */
+            height: auto;        /* 콘텐츠 높이에 따라 자동 조절 */
+        }
 
-.top {
-    display: flex;
-    align-items: center;
-    margin-right: 35px;
-    margin-top: 15px;
-}
+    /* 원본 이미지 모바일 화면에 맞게 크기 조절 */
+    .original-img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        object-fit: cover; /* 이미지 비율 유지하며 채움 */
+    }
 
-.h1 {
-    display: flex;
-    align-items: center;
-    margin-left: 13px;
-    margin-top: 14px;
-    width: 130px;
-}
+    /* body 기본 설정 (모바일) */
+    body {
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        overflow-x: hidden;
+    }
 
-a {
-    text-decoration: none; /* 밑줄 제거 */
-    color: black;
-}
+    /* 헤더 영역 스타일 */
+    .head {
+        height: 13vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-h1 {
-    margin-top: 0;
-    margin-bottom: 0;
-}
+    /* 마우스 커서 포인터로 변경 */
+    a.mypage,
+    a.name,
+    a.logout {
+        cursor: pointer;
+    }
 
-.mypage {
-    margin-right: 5px;
-}
+    /* 이름 링크 호버 색상 변경 */
+    .name:hover {
+        color: rgb(142, 20, 20);
+    }
+    /* 로그아웃 링크 호버 색상 변경 */
+    .logout:hover {
+        color: rgb(33, 33, 157);
+    }
+    /* 로그아웃 링크 호버 색상 변경 */
+    .logout:hover {
+        color: rgb(33, 33, 157);
+    }
+    /* 마이페이지 링크 호버 색상 변경 */
+    .mypage:hover {
+        color: #137527;
+    }
 
-.name {
-    margin-right: 5px;
-}
+    /* 상단 영역: flex로 정렬, 마진 조절 */
+    .top {
+        display: flex;
+        align-items: center;
+        margin-right: 35px;
+        margin-top: 15px;
+    }
 
-.img {
-    display: flex;
-    width: 100vw;
-    height: 64vh;
-}
+    /* h1 클래스: flex 정렬 및 마진 */
+    .h1 {
+        display: flex;
+        align-items: center;
+        margin-left: 13px;
+        margin-top: 9px;
+        width: 130px;
+    }
 
-.term a {
-    color: rgb(201, 201, 201);
-    text-decoration: none;
-}
+    /* a 태그 기본 스타일: 밑줄 없고 검정색 */
+    a {
+        text-decoration: none;
+        color: black;
+    }
 
-.footer {
-    color: rgb(201, 201, 201);
-    background-color: #414b64;
-    gap: 50px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 10vh;
-    margin-top: 42px;
-}
+    /* 메뉴 영역 숨김 */
+    .menu {
+        display: none;
+    }
 
-.menu {
-    display: flex;
-    align-items: center;
-    width: 100vw;
-    height: 9vh;
-    padding: 0 10px; /* 좌우 여백 조정 */
-    box-sizing: border-box;
-}
+    /* 이미지 영역 높이 조절 */
+    .img {
+        height: auto;
+        width: 100vw;
+        display: block;
+    }
 
-.fix {
-    width: 40vw;
-    height: 64vh;
-}
-
-.menu1 {
-    text-align: center;
-    width: auto; /* 300vw → auto 로 수정 */
-    flex: 1; /* 메뉴가 균등분할되도록 */
-    display: block;
-    padding: 7px 10px;
-    transition: background-color 0.3s ease;
-    font-size: 16px;
-    line-height: 1.5;
-    position: relative;
-    background-color: #d3d3d343;
-    cursor: pointer;
-}
-
-.menu1::after {
-    content: "";
-    position: absolute;
-    right: 0;
-    top: 6px;
-    height: 70%;
-    width: 1px;
-    background-color: rgb(0, 0, 0);
-}
-
-.menu1:last-child::after {
-    display: none;
-}
-
-.menu1:hover {
-    background-color: #cacacab0;
-}
-
-#one,
-#oldone {
-    width: 100vw;
-    height: 81vh;
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto; /* 내용 넘침시 스크롤 */
-}
-
-.OF, .OS, .OT, .OA,
-.Pf, .Ps, .Pt {
-    margin-left: 100px;
-    width: 100%;
-    height: 25vh;
-    box-sizing: border-box;
-}
-
-#please {
-    margin-left: 1200px; /* 오른쪽 정렬 */
-    display: block;
-    margin-top: 10px;
-}
-
-.line {
-    background-color: black;
-    width: 86vw;
-    height: 1px;
-    margin: 10px 0;
-}
-
-button {
-    background-color: #0C4AB5;
-    border-radius: 8px;
-    border: 3px solid #0C4AB5;
-    color: white;
-    cursor: pointer;
-    padding: 8px 12px;
-    font-size: 14px;
-}
-
-h3 {
-    margin-bottom: 0;
-}
-
-p {
-    margin-top: 10px;
-    margin-bottom: 5px;
-}
-
-/* 모달 스타일 */
-.modal {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 400px;
-    max-height: 60vh;
-    background: white;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    border-radius: 10px;
-    padding: 20px;
-    overflow-y: auto;
-    z-index: 9999;
-}
-
-.modal-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-}
-
-.modal-footer {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 10px;
-}
-
-.modal-footer button {
-    width: auto;
-    min-width: 80px;
-    padding: 8px 16px;
-    font-size: 14px;
-    background-color: #0C4AB5;
-    color: white;
-    border: 3px solid #0C4AB5;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.close {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-    user-select: none;
-}
-
-.modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 999;
-}
-
-hr {
-    border: none;
-    height: 1px;
-    background-color: #ccc;
-    margin: 10px 0;
-}
-
-.original-img {
-    display: block;
-    margin: 10px auto 0;
-    max-width: 90%;
-    max-height: 80vh;
-}
-
-.box {
-    position: relative;
-    display: inline-block;
-}
-
-.text-overlay {
-    position: absolute;
-    left: 170px;
-    top: 22.5%;
-    transform: translateY(-50%);
-    padding: 5px 10px;
-    font-weight: bold;
-    max-width: 100%;
-    width: 100%;
-    z-index: 10;
-}
-
-.title {
-    font-size: 40px;
-    font-weight: bold;
-    background: linear-gradient(90deg, #00c6ff, #0072ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    margin: 0 0 10px 0;
-}
-
-.title1 {
-    font-size: 55px;
-    font-weight: bold;
-    background: linear-gradient(90deg, #00c6ff, #0b3d7a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
-    margin: 0 0 10px 0;
-}
-
-.quick-btn {
-    background-color: #2C74B3;
-    color: white;
-    border: 2px solid #2C74B3;
-    border-radius: 8px;
-    padding: 10px 18px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.quick-btn:hover {
-    background-color: #083a8f;
-}
-
-.quick-links {
-    margin-top: 30px;
-    display: flex;
-    gap: 15px;
-    width: 100%;
-    margin-left: 0;
-}
-
-/* 슬라이더 컨테이너 */
-.slider {
-    position: relative;
-    width: 90%;
-    max-width: 1200px;
-    aspect-ratio: 2662 / 1000;
-    margin: 40px auto;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-/* 이미지들을 감싸는 내부 영역 */
-.slider-inner {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s ease;
-}
-
-/* 각 이미지 스타일 */
-.slide {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    display: none;
-    border-radius: 12px;
-    transition: opacity 0.8s ease-in-out;
-}
-
-/* 현재 보이는 이미지 */
-.slide.active {
-    display: block;
-    opacity: 1;
-}
-
-/* 좌우 버튼 공통 */
-.slider-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: white;
-    color: #083a8f;    
-    border: none;
-    font-size: 28px;
-    padding: 15px 25px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 10;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-}
-
-.slider-btn:hover {
-    background-color: darkblue;
-    color: white;
-    transform: translateY(-50%) scale(1.05);
-}
-
-.slider-btn.left {
-    left: 20px;
-}
-
-.slider-btn.right {
-    right: 20px;
+    /* 기타 필요 시 모바일 전용 스타일 추가 가능 */
 }

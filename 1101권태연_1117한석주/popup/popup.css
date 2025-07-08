@@ -1,43 +1,51 @@
-h2{
-    text-align: center;
+h2 {
+    text-align: center; /* 제목(h2) 중앙 정렬 */
 }
-ul{
+
+ul {
     padding: 13px;
 }
+
+/* 전체 화면을 채우는 래퍼 */
 .full-screen-wrapper {
-  width: 100vw;    /* 화면 너비 100% */
-  height: 100vh;   /* 화면 높이 100% */
-  box-sizing: border-box;     /* 패딩 포함 크기 계산 */
+    width: 100vw;    /* 뷰포트 너비 전체 사용 */
+    height: 100vh;   /* 뷰포트 높이 전체 사용 */
+    box-sizing: border-box;  /* 패딩과 테두리 포함하여 크기 계산 */
 }
+
+/* 본문 스타일 설정 */
 body {
     margin: 0;
-    min-height: 100vh; /* 화면 전체 높이 보장 */
-    background-color: rgb(166, 158, 149);
-    font-family: 'Noto Sans KR', sans-serif;
+    min-height: 100vh; /* 최소 높이 화면 전체 */
+    background-color: rgb(166, 158, 149); /* 배경색 */
+    font-family: "나눔고딕";
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 40px 40px 100px 40px;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: flex-start; /* 수직 정렬: 위쪽에서 시작 */
+    padding: 40px 40px 100px 40px; /* 상하좌우 여백 */
     box-sizing: border-box;
 }
 
+/* 공지 요약 리스트 스타일 */
 .summary-list {
-    padding-left: 30px; /* 왼쪽 들여쓰기 */
+    padding-left: 30px; /* 왼쪽 여백 */
     margin-top: 10px;
     margin-bottom: 10px;
-    color: #555;
-    list-style-type: disc;
-}
-.popup-wrapper {
-    max-width: 500px;
-    width: 85%;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 15);
-    padding: 10px 30px 30px 30px;    
-    align-items: center;     /* 가로(교차축) 가운데 정렬 */
+    color: #555; /* 텍스트 색상 */
+    list-style-type: disc; /* 점 모양 목록 */
 }
 
+/* 팝업 박스 스타일 */
+.popup-wrapper {
+    max-width: 500px; /* 최대 너비 제한 */
+    width: 85%; /* 화면에 따라 가변 너비 */
+    background-color: white; /* 배경 흰색 */
+    border-radius: 12px; /* 둥근 모서리 */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 15); /* 그림자 효과 */
+    padding: 10px 30px 30px 30px; /* 안쪽 여백 */
+}
+
+/* 공지 제목 스타일 */
 .notice {
     margin-top: 0;
     font-size: 20px;
@@ -45,33 +53,68 @@ body {
     font-weight: bold;
 }
 
+/* 공지 내용 스타일 */
 .notice-card p {
     margin: 8px 0;
     color: #444;
 }
 
+/* 공지 날짜 스타일 */
 .notice-card .date {
     font-size: 12px;
     color: #999;
 }
+
+/* 공지 리스트 스타일 */
 .notice-list {
     display: flex;
-    flex-direction: column; /* 세로 방향 배열 */
-    top: 10px;
+    flex-direction: column; /* 세로로 정렬 */
 }
 
+/* 닫기 버튼 스타일 */
 .close {
     display: block;
-    margin-left: auto;  /* 왼쪽 마진을 auto로 해서 오른쪽 정렬 */
-    margin-top: 5px;
+    margin-left: auto; /* 오른쪽 정렬 */
+    margin-top: 20px;
     padding: 6px 10px;
     background-color: rgb(225, 220, 214);
     border-radius: 6px;
     border-color: rgb(173, 166, 159);
     cursor: pointer;
     font-size: 10px;
-    transition: background-color 0.2s; /* 색 바뀌는 속도 */
+    transition: background-color 0.2s; /* 마우스 오버 시 색 전환 */
 }
+
+/* 닫기 버튼 호버 시 색상 변경 */
 .close:hover {
     background-color: rgb(195, 187, 179);
+}
+
+/* 공지사항 표 전체 스타일 */
+.notice-table {
+    width: 100%; /* 부모 요소에 맞게 넓이 설정 */
+    border-collapse: collapse; /* 셀 사이 간격 제거 */
+    margin-top: 20px;
+    font-size: 14px;
+    font-family: 'Noto Sans KR', sans-serif;;
+}
+
+/* 표 안의 셀(th, td) 스타일 */
+.notice-table th, .notice-table td {
+    border: 1px solid #ddd; /* 옅은 테두리 */
+    padding: 12px; /* 셀 안쪽 여백 */
+    text-align: left; /* 왼쪽 정렬 */
+    vertical-align: top; /* 위쪽 정렬 */
+}
+
+/* 표 제목 셀 스타일 */
+.notice-table th {
+    background-color: rgb(159, 151, 142); /* 진한 회색 배경 */
+    color: rgb(255, 255, 255); /* 흰색 글자 */
+    font-family: "나눔고딕"; /* 글꼴 설정 */
+}
+
+/* 표 행에 마우스를 올렸을 때 배경색 변화 */
+.notice-table tr:hover {
+    background-color: rgba(214, 207, 200, 0.562); /* 연한 회색 */
 }
